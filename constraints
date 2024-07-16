@@ -1,0 +1,107 @@
+USE movie
+
+-- modifying all the columns named deleted from the tble database
+ALTER TABLE directors
+MODIFY COLUMN deleted VARCHAR(3); 
+
+ALTER TABLE genres
+MODIFY COLUMN deleted VARCHAR(3); 
+
+ALTER TABLE languages
+MODIFY COLUMN deleted VARCHAR(3); 
+
+ALTER TABLE movie_cast
+MODIFY COLUMN deleted VARCHAR(3); 
+
+ALTER TABLE movie_genres
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE movie_languages
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE movie_production_companies
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE movie_resolution
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE movie_resolution
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE movies
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE movie_genres
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE ratings
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE resolution
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE roles
+MODIFY COLUMN deleted VARCHAR(3);
+
+ALTER TABLE stars
+MODIFY COLUMN deleted VARCHAR(3);
+
+-- Adding more columns
+
+
+ALTER TABLE nationalities
+ADD movie_status VARCHAR(10);
+
+ALTER TABLE directors
+ADD gender VARCHAR(6);
+
+ALTER TABLE genres
+ADD rated INT;
+
+-- Adding check constraints to directors
+ALTER TABLE directors
+ADD CHECK (gender IN ('male','female'));
+
+ALTER TABLE directors
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constraints to genres
+ALTER TABLE genres
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constraints to languages	
+ALTER TABLE movie_cast
+ADD CHECK (deleted IN ('yes','no'));
+
+ALTER TABLE movie_cast
+ADD CHECK (roledescription IN ('lead role','supporting cast','ensemble cast','cameo role','background cast'));
+-- Adding check constraints to movie_genres
+ALTER TABLE movie_genres
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constraints to movie_languages
+ALTER TABLE movie_languages
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constrains to nationalities
+ALTER TABLE nationalities
+ADD CHECK (movie_status IN ('Available','Banned'));
+-- Adding check constrains to movie_production_companies
+ALTER TABLE movie_production_companies
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constrains to movie_resolution
+ALTER TABLE movie_resolution
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constrains to novies
+ALTER TABLE movies
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constrains to ratings
+ALTER TABLE ratings
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constrains to resolution
+ALTER TABLE resolution
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constrains to roles
+ALTER TABLE roles
+ADD CHECK (deleted IN ('yes','no'));
+-- Adding check constrains to stars
+ALTER TABLE stars
+ADD CHECK (deleted IN ('yes','no'));
+
+
